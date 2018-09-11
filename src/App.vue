@@ -1,23 +1,31 @@
 <template>
-  <div id="app">
+  <div class="main">
     <router-view/>
-    <FooterGuide v-show="$route.meta.showFooter"/>
-
+    <FooterGuide v-if="$route" v-show="$route.meta.isShow"/>
   </div>
 </template>
 <script>
   import FooterGuide from './components/FooterGuide/FooterGuide.vue'
-  import axios from 'axios'
   export default {
-    components:{
+    name: 'App',
+    components: {
       FooterGuide
+    },
+    mounted () {
+      //dispath分发action  更新数据
+      this.$store.dispatch('getFocusList');
+      this.$store.dispatch('getTagList');
+      this.$store.dispatch('getnewitemlists');
+      this.$store.dispatch('getnewitemlists2');
+      this.$store.dispatch('getflashSaleIndexVO');
+      this.$store.dispatch('gettopicLists');
+      this.$store.dispatch('getcateList')
     }
   }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus">
-  #app
-    background #e4e4e4
-    width 100%
-    height 100%
+<style lang="less" scoped>
+  .main{
+    height:100%;
+  }
 </style>

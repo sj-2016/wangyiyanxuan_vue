@@ -1,9 +1,9 @@
 <template>
   <div class="Knowledge">
     <header>
-      <div class="icon"><i class="iconfont icon-shouye"></i></div>
+      <div class="icon" @click="toHome"><i class="iconfont icon-shouye"></i></div>
       <div class="wytext">网易严选</div>
-      <div class="icon"><i class="iconfont icon-fangdajing"></i><i class="iconfont icon-icon"></i></div>
+      <div class="icon" @click="toCart"><i class="iconfont icon-fangdajing"></i><i class="iconfont icon-icon"></i></div>
     </header>
     <div class="mainContent">
       <div class="mainCon">
@@ -54,22 +54,14 @@
         <Lines/>
         <KnowledgeCard/>
         <Lines/>
-       <!-- <div class="video">
-          <header>严选LOOK</header>
-          <div>
-            <video src="http://yanxuan.nosdn.127.net/yx-topic-1531997741819r9mv9q0g.jpg"></video>
-          </div>
-          <div>
-            <p><img src="//yanxuan.nosdn.127.net/be23f31e86d9db771072eb33f60fb067.png?imageView&quality=75&thumbnail=48y48" alt=""><span>选妹</span></p>
-            <p>唤自然系列</p>
-          </div>
-        </div>-->
         <div class="more">
           更多精彩
         </div>
         <KnowleWonderful v-for="(findMore,index) in findMores" :key="index+'1'" :findMore="findMore"/>
       </div>
+      <FooterGuide/>
     </div>
+    <router-view/>
   </div>
 </template>
 
@@ -80,6 +72,7 @@
   import KnowledgeCard from '../../components/KnowledgeCard/KnowledgeCard.vue'
   import Lines from '../../components/Lines/Lines.vue'
   import KnowleWonderful from '../../components/KnowleWonderful/KnowleWonderful.vue'
+  import FooterGuide from '../../components/FooterGuide/FooterGuide.vue'
   import {mapState} from 'vuex'
   export default {
 
@@ -111,7 +104,7 @@
         scrollX: true
 
 
-      }),
+      })
       this.$store.dispatch('getbanners');
       this.$store.dispatch('getcolumn');
       this.$store.dispatch('getrecommend');
@@ -121,10 +114,19 @@
     computed:{
       ...mapState(['banners','columns','recommend','tenfifteen','findMores'])
     },
+    methods:{
+      toHome(){
+        this.$router.replace('/home')
+      },
+      toCart(){
+        this.$router.replace('/cart')
+      }
+    },
     components:{
       KnowledgeCard,
       Lines,
-      KnowleWonderful
+      KnowleWonderful,
+      FooterGuide
     },
     watch:{
       banners (){
@@ -257,7 +259,7 @@
         }
         .singledogs{
           height:531/@rem;
-          width:2000/@rem;
+          width:2450/@rem;
           .singledog{
             background: url("//yanxuan-static.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/tenFifteen-2a1d0ea11b.png");
             width:500/@rem;

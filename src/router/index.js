@@ -5,7 +5,7 @@ import FirstShow from '../pages/FirstShow/FirstShow.vue'
 import Home from '../pages/Home/Home.vue'
 import Cart from '../pages/Cart/Cart.vue'
 import Personal from '../pages/Personal/Personal.vue'
-import KonwThings from '../pages/KonwThings/KnowThings.vue'
+import KnowThings from '../pages/KnowThings/KnowThings.vue'
 import Category from '../pages/Category/Category.vue'
 
 import HomeNavContent from '../pages/Home/HomeNavContent/HomeNavContent.vue'
@@ -64,7 +64,7 @@ export default new VueRouter({
     },
     {
       path: '/knowthings',
-      component: KonwThings,
+      component: KnowThings,
       meta:{
         showFooter:true
       }

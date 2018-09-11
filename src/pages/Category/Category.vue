@@ -1,12 +1,50 @@
 <template>
-  <div>
-    Types
+  <div class="category">
+    <header><i class="iconfont icon-fangdajing"></i><span>搜索商品,共10005款好物</span></header>
+    <div class="categoryMain">
+      <CategoryList/>
+      <CategoryContent/>
+      <FooterGuide/>
+    </div>
+    <router-view/>
   </div>
 </template>
 
 <script>
-  export default {}
+  import CategoryList from '../../components/CategoryList/CategoryList.vue'
+  import CategoryContent from '../../components/CategoryContent/CategoryContent.vue'
+  import FooterGuide from '../../components/FooterGuide/FooterGuide.vue'
+  export default {
+    mounted(){
+      this.$store.dispatch('getcategorys')
+    },
+    components:{
+      CategoryList,
+      CategoryContent,
+      FooterGuide
+    }
+  }
 </script>
-<style lang="stylus" rel="stylesheet/stylus">
 
+<style scoped lang="less">
+  @import '../../common/less/blend';
+  .category{
+    height:100%;
+    overflow: hidden;
+    header{
+      width:690/@rem;
+      height:56/@rem;
+      margin: .2rem auto;
+      font-size: 27.998/@rem;
+      color:#666;
+      text-align: center;
+      background: #ededed;
+      border-radius: .1rem;
+      line-height:56/@rem;
+    }
+    .categoryMain{
+      height:85%;
+      display: flex;
+    }
+  }
 </style>

@@ -2,21 +2,20 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import store from './store'
-
-import {Button} from 'mint-ui'
-import './mock/mockServer'
-import VueLazyLoader from 'vue-lazyloader'
-
+import './common/css/reset.css'
+import store from '../src/store'
+import '../src/mock/mockServer'
+import './filters'
+import VueLazyload from 'vue-lazyload'
 import loading from './common/images/banana8.jpg'
-Vue.use(VueLazyLoader,{
+Vue.use(VueLazyload, {
   loading
 });
-/* eslint-disable no-new */
-Vue.component(Button.name, Button);
+Vue.config.productionTip = false;
 new Vue({
   el: '#app',
+  components: { App },
+  template: '<App/>',
   router,
-  render:h=>h(App),
-  store,
+  store
 });
