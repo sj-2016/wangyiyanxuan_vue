@@ -1,6 +1,8 @@
+<!--首页的推荐页面-->
 <template>
   <div class="homeCon">
     <div>
+      <!--首页轮播-->
       <div class="swiper-container">
         <div class="swiper-wrapper">
           <div class="swiper-slide" v-for="(focus, index) in focusList" :key="index">
@@ -10,11 +12,13 @@
         <!-- 如果需要分页器 -->
         <div class="swiper-pagination"></div>
       </div>
+      <!--轮播下的三个小标题-->
       <div class="prompt">
         <div><i class="iconfont icon-right-1"></i>网易自营品牌</div>
         <div><i class="iconfont icon-right-1"></i>30天无忧退货</div>
         <div><i class="iconfont icon-right-1"></i>48小时快速退货</div>
       </div>
+      <!--品牌制造直供商-->
       <div class="homecontent">
         <header>品牌制造直供商<i class="iconfont icon-icon--"></i></header>
         <div class="homecon">
@@ -24,6 +28,7 @@
           </div>
         </div>
       </div>
+      <!--新品首发-->
       <div>
         <div class="newHeader">
           <span class=" shoufa">新品首发</span>
@@ -31,6 +36,7 @@
         </div>
         <Scroll :scroll="newitemlists" a="1"/>
       </div>
+      <!--人气推荐-->
       <div>
         <div class="newHeader">
           <span class=" shoufa">人气推荐</span>
@@ -38,6 +44,7 @@
         </div>
         <Scroll :scroll="newitemlists2" a="2"/>
       </div>
+      <!--严选限时购-->
       <div class="activity">
         <div class="left-item">
           <div>严选限时购</div>
@@ -46,7 +53,9 @@
         </div>
        <img :src="flashSaleIndexVO.primaryPicUrl"/>
       </div>
+      <!--福利社-->
       <div class="welfare" v-if="flashSaleIndexVO.saleIndexVO" :style="{background:`url(${flashSaleIndexVO.saleIndexVO.picUrl})`}"></div>
+      <!--专题精选-->
       <div class="homecontent">
         <header>专题精选<i class="iconfont icon-icon--"></i></header>
         <div class="swiper1">
@@ -59,6 +68,7 @@
           </div>
         </div>
       </div>
+      <!--更多居家好物-->
       <div class="goodContent" v-for="(cateList,index) in cateLists">
         <header>{{cateList.name}}</header>
         <Good v-for="(cate,index) in cateList.itemList" :key="index" :cate="cate"/>
@@ -67,6 +77,7 @@
            <i class="iconfont icon-youjiantou"></i>
         </div>
       </div>
+      <!--首页底部-->
       <footer>
           <div class="foot">
             <div>下载APP</div>
@@ -99,7 +110,7 @@
          return tags
        },
        acc(){
-        const acc = this.topicLists.slice(0,2)
+        const acc = this.topicLists.slice(0,2);
          return acc
        }
      },
@@ -137,7 +148,7 @@
             interactive: false,
           },
           mouseWheel: true,
-        })
+        });
 //        当切换其他路由后回来vuex数据不变 监控不上  swiper
        if(this.topicLists){
          new Swiper ('.swiper1', {

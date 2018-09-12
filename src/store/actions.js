@@ -1,3 +1,7 @@
+/*
+*
+*/
+
 import {
   RECEIVE_HEADER,
   RECEIVE_FOCUSLIST,
@@ -104,7 +108,7 @@ export default {
     if(result.code === 0){
 
       const categorys = result.data;
-      commit(RECEIVE_CATEGORYS, {categorys})
+      commit(RECEIVE_CATEGORYS, {categorys})//categoryData下面的categorys
     }
   },
 //识物

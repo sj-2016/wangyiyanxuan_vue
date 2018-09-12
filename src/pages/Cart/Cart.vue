@@ -85,7 +85,7 @@
       div{
         color: #999;
         font-size: 27.9998/@rem;
-        margin-bottom: .3rem;
+    /*    margin-bottom: .3rem;*/
       }
       button{
         background: #b4282d;

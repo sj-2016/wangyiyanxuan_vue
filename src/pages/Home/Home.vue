@@ -5,17 +5,20 @@
       <Nav/>
     </div>
     <router-view/>
+    <FooterGuide/>
   </div>
 </template>
 
 <script>
   import HomeHeader from '../../components/HomeHeader/HomeHeader.vue'
+  import FooterGuide from '../../components/FooterGuide/FooterGuide.vue'
   import Nav from '../../components/Nav/Nav.vue'
 
   export default {
     components: {
       HomeHeader,
-      Nav
+      Nav,
+      FooterGuide
     },
     mounted () {
 

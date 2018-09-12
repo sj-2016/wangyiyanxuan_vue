@@ -15,7 +15,8 @@
     export default {
       methods: {
         toHome () {
-          this.$router.replace('/home')
+          console.log(123)
+          this.$router.history.replace('/home')
         }
       }
     }

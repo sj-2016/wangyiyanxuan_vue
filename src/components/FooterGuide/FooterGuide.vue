@@ -1,7 +1,7 @@
 <!--底部导航-->
 <template>
   <div class="footer">
-    <div @click="goto('/home')" :class="{active: $route.path.slice(0,9)==='/home'}">
+    <div @click="goto('/home')" :class="{active: $route.path==='/homepage/homenavcontent/1'}">
       <p>
         <i class="iconfont icon-shouye"></i>
       </p>
@@ -35,14 +35,16 @@
 </template>
 
 <script>
-  import PubSub from 'pubsub-js'
   export default {
+    data(){
+      return{
+
+      }
+    },
     methods: {
       goto (path) {
+        console.log(111);
         this.$router.replace(path);
-        if(path==='/home'){
-          PubSub.publish('activeIndex',0)
-        }
       }
     }
   }
@@ -55,6 +57,7 @@
     width:100%;
     bottom: 0;
     display: flex;
+    z-index: 100;
     justify-content: space-around;
     background: #fff;
 
@@ -74,7 +77,6 @@
         font-size: 24/@rem;
         margin-top: 2/@rem;
       }
-
     }
     &>.active{
       p{
@@ -85,7 +87,6 @@
       span{
         color:#b4282d ;
       }
-
     }
   }
 </style>

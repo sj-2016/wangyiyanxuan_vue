@@ -1,3 +1,4 @@
+<!--分类页面所需要的头部下面的内容-->
 <template>
   <div class="good" v-if="cate">
     <img  v-lazy="cate.primaryPicUrl"/>

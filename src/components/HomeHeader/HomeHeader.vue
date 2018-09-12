@@ -1,3 +1,4 @@
+<!--首页头部-->
 <template>
   <div class="homeHeader">
     <div class="text">网易严选</div>
